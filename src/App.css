@@ -2,13 +2,15 @@
 
 * {
   font-family: 'PT Serif', serif;
+  margin: 0;
+  padding: 0;
 }
 
 .WhiteMode {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  width: 100%;
 }
 
 .DarkMode {
@@ -17,8 +19,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  max-width: 100vw;
+  min-height: 100vh;
 }
 
 .DicionaryContent {
@@ -121,12 +123,12 @@ nav .btnDarkModeOn:before {
 
 .SearchContent input{
 
-  width: 35em;
+  width: 30vw;
   height: 3em;
   border-radius: 15px;
   border: 1px solid #242424;
   padding-left: 1.2em;
-  padding-right: 2em;
+  padding-right: 2.5em;
 }
 
 .SearchContent button {
@@ -143,6 +145,87 @@ nav .btnDarkModeOn:before {
   height: 1.2em;
   width: 1.2em;
 }
+
+.DicionaryDescription {
+  margin-top: 1em;
+  justify-self: flex-start;
+  width: 100%;
+}
+
+.WordContent {
+  margin-bottom: 2em;
+  margin-top: 1em;
+}
+
+.WordContent h1{
+  font-size: 3em;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.MeaningsContent {
+  margin-bottom: 1em;
+}
+
+.MeaningsContent h1{
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin-bottom: .5em;
+    padding-bottom: .2em;
+}
+
+.WhiteMode .MeaningsContent h1 {
+  border-bottom: 2px solid black;
+
+}
+
+.DarkMode .MeaningsContent h1{
+  border-bottom: 2px solid white;
+}
+
+.MeaningsContent ul li {
+  margin-bottom: .2em;
+}
+
+.EtimologyContent {
+  margin-bottom: 1em;
+}
+
+.EtimologyContent h1 {
+  font-size: 1.5em;
+  font-weight: bolder;
+  margin-bottom: .5em;
+  padding-bottom: .2em;
+}
+
+.WhiteMode .EtimologyContent h1 {
+border-bottom: 2px solid black;
+
+}
+
+.DarkMode .EtimologyContent h1{
+border-bottom: 2px solid white;
+}
+
+@media screen and (max-width: 770px) {
+  .DicionaryContent {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .MeaningsContent ul li {
+    width: 90%;
+    margin-left: 1.2em;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .DicionaryContent {
+    width: 90%;
+  }
+}
+
 
 
 

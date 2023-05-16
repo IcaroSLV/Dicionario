@@ -21,6 +21,11 @@ function App() {
 
     e.preventDefault()
 
+      setData(null)
+      setnounGender("")
+      setMeaning([])
+      setEtymology("")
+
       const loadData = async() => {
   
       const res = await fetch(`https://dicio-api-ten.vercel.app/v2/${searchTerm}`)
@@ -30,18 +35,17 @@ function App() {
         console.log(searchTerm, nounGender, etymology, meanings)
         setnounGender(data[0].partOfSpeech)
         setMeaning(data[0].meanings)
+        console.log(meanings)
         setEtymology(data[0].etymology)
       })
       .catch(err => console.log(err))
   
       setData(res)
-  
       }
-  
       loadData()
-
   }
 
+  
 
   return (
     <div className={darkModeIsOn ? "DarkMode" : "WhiteMode"}>
@@ -64,10 +68,23 @@ function App() {
         </form>
         <section className='DicionaryDescription'>
           <div className='WordContent'> 
-              <h1>{Term && Term.toLowerCase()}</h1>
+              <h1>{Term && Term.toUpperCase()}</h1>
               <p>{nounGender}</p>
           </div>
-          
+          <div className='MeaningsContent'>
+            <h1>Significado</h1>
+            <ul>
+              {meanings && meanings.map((meaning) => (
+                <li>{meaning}</li>
+              ))}
+            </ul>
+          </div>
+          <div className='EtimologyContent'>
+            <h1>Etimologia</h1>
+            <div>
+              {etymology}
+            </div>
+          </div>
         </section>
       </div>
     </div>
